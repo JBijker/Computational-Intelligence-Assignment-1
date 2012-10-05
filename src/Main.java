@@ -9,7 +9,7 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		int N = 5;
+		int N = 15;
 		
 		roadNetwork roads = new roadNetwork(N);
 		System.out.println("Aantal steden: " + roads.getN());
