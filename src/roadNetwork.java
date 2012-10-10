@@ -6,10 +6,12 @@ import java.io.InputStreamReader;
 public class roadNetwork {
 
 	private int N;
+	private int startCity;
 	private double distances[][];
 
-	public roadNetwork(int cities) {
+	public roadNetwork(int cities, int startCity) {
 
+		this.startCity = startCity;
 		try {
 			// Open the file that is the first
 			// command line parameter
@@ -58,6 +60,26 @@ public class roadNetwork {
 		return N;
 	}
 
+	public double getFitness(Chromosome chromosome){
+		
+		Integer[] cities = chromosome.getGenes();
+		int previousCity = this.startCity;
+		double distance = 0.0;
+		for(int i = 0; i < cities.length; i++){
+			int city = cities[i];
+			distance += getDistance(previousCity, city);
+			//System.out.println("Afstand van " + previousCity + " naar " + city + " is " + getDistance(previousCity, city) + ", totaal: " + distance);
+			previousCity = city;
+		}
+		int city = this.startCity;
+		distance += getDistance(previousCity, city);
+		//System.out.println("Afstand van " + previousCity + " naar " + city + " is " + getDistance(previousCity, city) + ", totaal: " + distance);
+		
+		return distance;
+		
+	}
+	
+	
 	public void outputArray() {
 		System.out.print("Stad  ");
 		for (int j = 0; j < N; j++) {
