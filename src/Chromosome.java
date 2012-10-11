@@ -6,10 +6,10 @@ public class Chromosome {
 	private int N;
 	private int startCity;
 	
-	public Chromosome (int cities, int startCity) {
+	public Chromosome () {
 		
-		N = cities;
-		this.startCity = startCity;
+		N = Main.N;
+		this.startCity = Main.startCity;
 		
 		genes = new Integer[N-1];
 		
@@ -19,7 +19,6 @@ public class Chromosome {
 	
 	public void fillRandom(){
 		
-		Random generator = new Random();
 		int j = 0;
 		for (int i = 0; i < N; i++) {
 			if(i != startCity){

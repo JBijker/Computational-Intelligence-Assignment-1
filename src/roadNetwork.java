@@ -9,9 +9,10 @@ public class roadNetwork {
 	private int startCity;
 	private double distances[][];
 
-	public roadNetwork(int cities, int startCity) {
+	public roadNetwork() {
 
-		this.startCity = startCity;
+		int cities = Main.N;
+		this.startCity = Main.startCity;
 		try {
 			// Open the file that is the first
 			// command line parameter
@@ -94,7 +95,11 @@ public class roadNetwork {
 				String str = "";
 				if(distances[i][j] < 100) str += " ";
 				if(distances[i][j] < 10) str += " ";
-				System.out.print(str + " " + distances[i][j]);
+				if(distances[i][j] == 0.0){
+					System.out.print(str + " -- ");
+				} else {
+					System.out.print(str + " " + distances[i][j]);
+				}
 			}
 			System.out.println(" ]");
 		}
