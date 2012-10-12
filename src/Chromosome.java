@@ -6,6 +6,7 @@ public class Chromosome {
 	private int N;
 	private int startCity;
 	private double fitness;
+	private double fitnessRatio;
 	
 	public Chromosome () {
 		
@@ -31,11 +32,25 @@ public class Chromosome {
 		
 	}
 	
+	public double getDistance(){
+		return Main.roads.getDistance(this);
+	}
+	
 	public double getFitness(){
 		if(this.fitness == 0){
 			this.fitness = Main.roads.getFitness(this);
 		}
 		return this.fitness;
+	}
+	
+	public void calculateFitnessRatio(double fitnessSum){
+		if(this.fitnessRatio == 0){
+			this.fitnessRatio = (this.fitness / fitnessSum) * 100.0;
+		}
+	}
+	
+	public double getFitnessRatio(){
+		return this.fitnessRatio;
 	}
 	
 	public Integer[] getGenes(){

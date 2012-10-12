@@ -9,7 +9,7 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 
-		N = 10;
+		N = 5;
 		startCity = 2;
 		
 		roads = new roadNetwork();

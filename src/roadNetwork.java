@@ -61,7 +61,7 @@ public class roadNetwork {
 		return N;
 	}
 
-	public double getFitness(Chromosome chromosome){
+	public double getDistance(Chromosome chromosome){
 		Integer[] cities = chromosome.getGenes();
 		int previousCity = this.startCity;
 		double distance = 0.0;
@@ -79,6 +79,9 @@ public class roadNetwork {
 		
 	}
 	
+	public double getFitness(Chromosome chromosome){
+		return 1000 / getDistance(chromosome);
+	}
 	
 	public void outputArray() {
 		System.out.print("Stad  ");
