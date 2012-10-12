@@ -5,6 +5,7 @@ public class Chromosome {
 	private Integer genes[];
 	private int N;
 	private int startCity;
+	private double fitness;
 	
 	public Chromosome () {
 		
@@ -28,6 +29,13 @@ public class Chromosome {
 		}
 		Collections.shuffle(Arrays.asList(genes));
 		
+	}
+	
+	public double getFitness(){
+		if(this.fitness == 0){
+			this.fitness = Main.roads.getFitness(this);
+		}
+		return this.fitness;
 	}
 	
 	public Integer[] getGenes(){
